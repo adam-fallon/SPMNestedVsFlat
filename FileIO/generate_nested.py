@@ -10,7 +10,7 @@ if not os.path.exists('Nested/Sources'):
 # Dictionary to hold dependencies
 dependencies = {}
 
-for i in range(0, 250):
+for i in range(0, 50):
     current_module = f"Module{i}"
     os.mkdir(f"Nested/Sources/{current_module}")
 
@@ -25,10 +25,10 @@ for i in range(0, 250):
     import_statements = "\n".join([f"import {dep}" for dep in dependencies[current_module]])
     struct_name = f"File{i}"
     
-    for submodule in ["Interface", "Mocks", "Other"]:
+    for submodule in ["Interface", "Mocks", "Other", "Sources", "Tests"]:
         os.mkdir(f"Nested/Sources/{current_module}/{submodule}")
         with open(f"Nested/Sources/{current_module}/{submodule}/file{i}_{submodule}.swift", "w") as f:
-            f.write(f"{import_statements}\n" if import_statements else "")
+            # f.write(f"{import_statements}\n" if import_statements else "")
             f.write(f"struct {struct_name}_{submodule} {{\n")
             f.write(f"    // Implementation\n")
             f.write(f"}}\n")
@@ -45,9 +45,9 @@ with open("Nested/Package.swift", "w") as f:
     f.write("    ],\n")
     f.write("    dependencies: [],\n")
     f.write("    targets: [\n")
-    for i in range(0, 250):
+    for i in range(0, 50):
         dep_str = ", ".join([f"\"{x}\"" for x in dependencies[f"Module{i}"]])
-        for submodule in ["Interface", "Mocks", "Other"]:
-            f.write(f"        .target(name: \"Module{i}_{submodule}\", dependencies: [{dep_str}], path: \"Sources/Module{i}/{submodule}/\"),\n")        
+        for submodule in ["Interface", "Mocks", "Other", "Sources", "Tests"]:
+            f.write(f"        .target(name: \"Module{i}_{submodule}\", dependencies: [], path: \"Sources/Module{i}/{submodule}/\"),\n")        
     f.write("    ]\n")
     f.write(")\n")

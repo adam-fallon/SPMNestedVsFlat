@@ -8,7 +8,7 @@ from openpyxl.chart import BarChart, Reference
 cmd1 = "cd Flat && swift build"
 cmd2 = "cd Nested && swift build"
 clean = "rm -rf Flat/.build && rm -rf Nested/.build"
-iterations = 20
+iterations = 5
 time_cmd1 = []
 time_cmd2 = []
 

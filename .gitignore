@@ -1,4 +1,7 @@
-Nested/
-Flat/
+**/Flat
+**/Nested
+**/Flat/.build
+**/Nested/.build
 env
 *.xlsx
+.DS_Store
