@@ -1,9 +1,9 @@
-# SPM Nested_250_Targets_300_Directories_250_Files v Flat_250_Targets_250_Directories_250_Files structure
+# SPM Structure Test Bench
 
-Test bed for comparing;
+Test Bench to test;
 
-- Nested_250_Targets_300_Directories_250_Files vs Flat_250_Targets_250_Directories_250_Files Targets.
-- Target per submodule vs 1 module with all submodules inside.
+1. Does having more folders slow down swift build down in comparison to less folders?  
+2. Does having a target per module slow swift build down in comparison to less targets? 
 
 ## Before Running
 1. `python3 -m virtualenv env`
