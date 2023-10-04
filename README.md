@@ -12,6 +12,3 @@ Test Bench to test;
 4. `pip install openpyxl`
 5. `./run.sh`
 6. `python compare.py`
-
-## Compare
-Run `compare.py` to generate an Excel sheet showing the difference in running a `swift build` between the two packages.
