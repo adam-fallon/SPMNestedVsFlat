@@ -5,13 +5,13 @@ Test Bench to test;
 1. Does having more folders slow down swift build down in comparison to less folders?  
 2. Does having a target per module slow swift build down in comparison to less targets? 
 
-## Before Running
-1. `python3 -m virtualenv env`
-2. `source env/bin/activate`
-3. `pip install openpyxl`
-
 # Running
-1. `./run.sh`
+1. `cd <TEST>` (i.e `cd FileIO`) 
+2. `python3 -m virtualenv env`
+3. `source env/bin/activate`
+4. `pip install openpyxl`
+5. `./run.sh`
+6. `python compare.py`
 
 ## Compare
 Run `compare.py` to generate an Excel sheet showing the difference in running a `swift build` between the two packages.
