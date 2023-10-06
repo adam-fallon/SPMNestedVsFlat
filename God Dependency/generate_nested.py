@@ -16,6 +16,8 @@ for i in range(0, 250):
     for submodule in ["Interface", "Mocks", "Sources", "Tests"]:
         os.mkdir(f"Nested/Sources/{current_module}/{submodule}")
         with open(f"Nested/Sources/{current_module}/{submodule}/file{i}_{submodule}.swift", "w") as f:
+            if submodule == "Tests":
+                f.write(f"import {struct_name}_Mocks \n")    
             f.write(f"struct {struct_name}_{submodule} {{\n")
             f.write(f"    // Implementation\n")
             f.write(f"}}\n")

@@ -25,8 +25,7 @@ for i in range(0, 250):
         f.write(f"}}\n")
     
     with open(f"Flat/Tests/{current_module}Tests/file{i}.swift", "w") as f:
-        if i > 1:
-            f.write("import Mocks")
+        f.write(f"import Mocks \n")
         f.write(f"struct {struct_name}Test {{\n")
         f.write(f"    // Implementation\n")
         f.write(f"}}\n")
@@ -34,13 +33,17 @@ for i in range(0, 250):
     for submodule in ["Sources", "Interface", "Mocks", "Other"]:
         os.mkdir(f"Flat/Sources/{current_module}/{submodule}")
         with open(f"Flat/Sources/{current_module}/{submodule}/file{i}_{submodule}.swift", "w") as f:
-
             f.write(f"struct {struct_name}_{submodule} {{\n")
             f.write(f"    // Implementation\n")
             f.write(f"}}\n")
 
 if not os.path.exists('Flat/Sources/Mocks'):
     os.mkdir('Flat/Sources/Mocks')
+
+with open(f"Flat/Sources/Mocks/Mock.swift", "w") as f:
+    f.write(f"struct Mock {{\n")
+    f.write(f"    // Implementation\n")
+    f.write(f"}}\n")
 
 # Generate Package.swift
 with open("Flat/Package.swift", "w") as f:
